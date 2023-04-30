@@ -62,7 +62,6 @@ export class BooksScraper {
 
       const getFindElementError = (elementType: string) => new Error(`Could not get ${elementType} element of book [${bookId}].`);
 
-      await page.screenshot();
       const mainElementHandle = await page.$('#__layout > main > div > div.genshin-entry-page > div.genshin-entry-child-page');
       if (!mainElementHandle) {
         throw getFindElementError('main');
