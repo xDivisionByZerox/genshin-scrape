@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, normalize } from 'node:path';
+import { format } from 'prettier';
 import { DATA_DIR } from '../const';
 import { kebabCase } from './casing';
 
@@ -25,4 +26,7 @@ export function writeData(dataType: DataType, dataName: string, localeCode: Loca
 
   const fullFileName = normalize(join(directory, `${localeCode}.json`)).replaceAll('/\\/g', '/');
   writeFileSync(fullFileName, data);
+  format(fullFileName, {
+    parser: 'json',
+  });
 }
