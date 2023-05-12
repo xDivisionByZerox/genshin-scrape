@@ -15,7 +15,6 @@ interface IBook {
 export class BooksScraper {
 
   private readonly booksWikiUrl = `${WIKI_URL}/book`;
-  private readonly booksDataFileName = 'books.json';
 
   private get defaultNavigationOptions(): WaitForOptions {
     return {
@@ -48,7 +47,9 @@ export class BooksScraper {
       bookIds.map((id) => () => this.getSingleBook(browser, id)),
       10,
     );
-    writeData(this.booksDataFileName, JSON.stringify(books));
+    for(const book of books) {
+      writeData('books', book.title, 'en', JSON.stringify(books));
+    }
 
     await browser.close();
   }

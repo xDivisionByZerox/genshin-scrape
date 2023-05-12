@@ -1,18 +1,28 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, normalize } from 'node:path';
 import { DATA_DIR } from '../const';
+import { kebabCase } from './casing';
+
+type DataType = 'books' | 'weapons';
+
+type Locale = 'en' | 'de';
 
 /**
  * Writes a scrape data file.
  * 
- * @param fileName The name of the file in the result directory. 
+ * @param dataName The name of the file in the result directory. 
  * @param data The data to store in the file.
  */
-export function writeData(fileName: string, data: string) {
-  if (!existsSync(DATA_DIR)) {
-    mkdirSync(DATA_DIR, { recursive: true });
+export function writeData(dataType: DataType, dataName: string, localeCode: Locale, data: string) {
+  const directory = normalize(join(
+    DATA_DIR,
+    dataType,
+    kebabCase(dataName),
+  ));
+  if (!existsSync(directory)) {
+    mkdirSync(directory, { recursive: true });
   }
 
-  const fullFileName = normalize(join(DATA_DIR, fileName));
+  const fullFileName = normalize(join(directory, `${localeCode}.json`)).replaceAll('/\\/g', '/');
   writeFileSync(fullFileName, data);
 }
