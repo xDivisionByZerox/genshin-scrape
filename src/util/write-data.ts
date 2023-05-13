@@ -12,7 +12,7 @@ type Locale = 'en' | 'de';
  * Writes a scrape data file.
  * 
  * @param dataName The name of the file in the result directory. 
- * @param data The data to store in the file.
+ * @param data The data to store in the file. Has to be a JSON string.
  */
 export function writeData(dataType: DataType, dataName: string, localeCode: Locale, data: string) {
   const directory = normalize(join(
@@ -25,8 +25,8 @@ export function writeData(dataType: DataType, dataName: string, localeCode: Loca
   }
 
   const fullFileName = normalize(join(directory, `${localeCode}.json`)).replaceAll('/\\/g', '/');
-  writeFileSync(fullFileName, data);
-  format(fullFileName, {
+  const contentFormatted = format(data, {
     parser: 'json',
   });
+  writeFileSync(fullFileName, contentFormatted);
 }
