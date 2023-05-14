@@ -1,5 +1,7 @@
 export function kebabCase(input: string) {
   return input
     .toLowerCase()
-    .replaceAll(/[\s\']/g, '-');
+    .replace(/^[^a-zA-Z\d]/, '')
+    .replace(/[^a-zA-Z\d]$/, '')
+    .replaceAll(/[\s']/g, '-');
 }
