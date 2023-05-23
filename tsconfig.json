@@ -1,12 +1,25 @@
 {
   "compilerOptions": {
+    "allowArbitraryExtensions": false,
+    "allowImportingTsExtensions": false,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "allowUmdGlobalAccess": false,
     "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "alwaysStrict": true,
+    "assumeChangesOnlyAffectDirectDependencies": false,
+    "baseUrl": "./",
+    "checkJs": false,
+    "downlevelIteration": true,
     "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
+    "isolatedModules": false,
     "module": "CommonJS",
     "moduleResolution": "node",
     "newLine": "lf",
+    "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitOverride": true,
@@ -16,15 +29,23 @@
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "preserveConstEnums": false,
+    "pretty": true,
     "skipLibCheck": true,
     "strict": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
+    "stripInternal": true,
+    "suppressImplicitAnyIndexErrors": false,
     "target": "ESNext",
     "useUnknownInCatchVariables": true,
     "verbatimModuleSyntax": false
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*"
+  ]
 }
