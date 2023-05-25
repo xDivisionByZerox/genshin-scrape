@@ -6,10 +6,24 @@ import { IScrapingStrategy } from './strategies/scraping-strategy.interface';
 export class BaseScraper<T> {
 
   constructor(
+    /**
+     * Define the strategy to use for the scraping process.
+     */
     private readonly strategy: IScrapingStrategy<T>,
+    /**
+     * Define the name of the resource being scraped.
+     */
     private readonly resourceName: DataType,
   ) { }
 
+  /**
+   * Start the scraping process of the configured scraper instance.
+   * 
+   * @param parallelItemWorkers
+   * The amount of parallel workers for each resource item.
+   * You can change this value if the process takes too long or is too resource intense.
+   * Defaults to `10`.
+   */
   async scape(parallelItemWorkers = 10) {
     const browser = await puppeteer.launch({ headless: 'new' });
     const page = await browser.newPage();
