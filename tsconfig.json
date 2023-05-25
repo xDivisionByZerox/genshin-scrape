@@ -46,6 +46,6 @@
     "verbatimModuleSyntax": false
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ]
 }
