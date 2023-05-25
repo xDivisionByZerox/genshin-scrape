@@ -8,10 +8,9 @@ export class BaseScraper<T> {
   constructor(
     private readonly strategy: IScrapingStrategy<T>,
     private readonly resourceName: DataType,
-    private readonly parallelItems = 10,
   ) { }
 
-  async scape() {
+  async scape(parallelItemWorkers = 10) {
     const browser = await puppeteer.launch({ headless: 'new' });
     const page = await browser.newPage();
 
@@ -28,7 +27,7 @@ export class BaseScraper<T> {
           await page.close()
         }
       }),
-      this.parallelItems,
+      parallelItemWorkers,
     );
   }
 
