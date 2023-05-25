@@ -1,5 +1,5 @@
 import type { Page, WaitForOptions } from 'puppeteer';
-import { IScrapingStrategy } from './scraping-strategy.interface';
+import type { IScrapingStrategy } from './scraping-strategy.interface';
 
 export abstract class BaseScrapingStrategy<T> implements IScrapingStrategy<T> {
 

@@ -2,8 +2,8 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, normalize } from 'node:path';
 import { format } from 'prettier';
 import { DATA_DIR } from '../const';
+import type { Resource } from '../types/resource';
 import { kebabCase } from './casing';
-import { Resource } from '../types/resource';
 
 export type DataType = `${Resource}s`;
 
