@@ -1,4 +1,4 @@
-import { Page } from 'puppeteer';
+import type { Page } from 'puppeteer';
 
 /**
  * Scrolls the provided page to the bottom.
@@ -7,7 +7,7 @@ import { Page } from 'puppeteer';
 export async function autoScroll(page: Page): Promise<void> {
   await page.evaluate(async () => {
     let totalHeight = 0;
-    let distance = 100;
+    const distance = 100;
     let scrollHeight = Number.MAX_SAFE_INTEGER;
     while (totalHeight < scrollHeight - window.innerHeight) {
       scrollHeight = document.body.scrollHeight;

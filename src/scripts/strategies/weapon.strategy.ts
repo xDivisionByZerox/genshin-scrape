@@ -62,7 +62,7 @@ export class WeaponStrategy extends BaseScrapingStrategy<IWeapon> {
       return mainElement
         .querySelector('.detail-header img.d-img-show')
         ?.getAttribute('src')
-        ?? 'INVALID_IMAGE_URL'
+        ?? 'INVALID_IMAGE_URL';
     });
   }
 
@@ -80,7 +80,7 @@ export class WeaponStrategy extends BaseScrapingStrategy<IWeapon> {
     return mainElementHandle.evaluate((mainElementHandle) => {
       return mainElementHandle
         .querySelectorAll('.detail-header-common-level img.level-star-img')
-        .length
+        .length;
     });
   }
 

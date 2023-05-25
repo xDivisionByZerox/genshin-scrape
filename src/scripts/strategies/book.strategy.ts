@@ -1,4 +1,4 @@
-import { Page } from 'puppeteer';
+import type { Page } from 'puppeteer';
 import { WIKI_URL } from '../../const';
 import { autoScroll } from '../../util/auto-scroll';
 import { BaseScrapingStrategy } from './base.strategy';
@@ -70,7 +70,7 @@ export class BookStrategy extends BaseScrapingStrategy<IBook> {
         return {
           key: keyElement?.textContent?.trim() ?? null,
           value: valueElement?.textContent?.trim() ?? '',
-        }
+        };
       });
       console.log(`[${id}]: Got key "${key}" and value "${value}"`);
     }

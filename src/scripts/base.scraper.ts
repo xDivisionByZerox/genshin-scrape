@@ -1,7 +1,8 @@
 import puppeteer from 'puppeteer';
 import { parallel } from '../util/parallel';
-import { DataType, writeData } from '../util/write-data';
-import { IScrapingStrategy } from './strategies/scraping-strategy.interface';
+import type { DataType} from '../util/write-data';
+import { writeData } from '../util/write-data';
+import type { IScrapingStrategy } from './strategies/scraping-strategy.interface';
 
 export class BaseScraper<T> {
 
@@ -38,7 +39,7 @@ export class BaseScraper<T> {
           // todo - extract saving into something like a storage provider
           writeData(this.resourceName, name, 'en', JSON.stringify(entry));
         } finally {
-          await page.close()
+          await page.close();
         }
       }),
       parallelItemWorkers,
