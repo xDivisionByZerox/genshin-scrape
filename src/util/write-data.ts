@@ -3,10 +3,11 @@ import { join, normalize } from 'node:path';
 import { format } from 'prettier';
 import { DATA_DIR } from '../const';
 import { kebabCase } from './casing';
+import { Resource } from '../types/resource';
 
-type DataType = 'books' | 'weapons';
+export type DataType = `${Resource}s`;
 
-type Locale = 'en' | 'de';
+export type Locale = 'en' | 'de';
 
 /**
  * Writes a scrape data file.
