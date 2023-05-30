@@ -3,5 +3,6 @@ export function kebabCase(input: string) {
     .toLowerCase()
     .replace(/^[^a-zA-Z\d]/, '')
     .replace(/[^a-zA-Z\d]$/, '')
-    .replaceAll(/[\s']/g, '-');
+    .replaceAll(/[\s']/g, '-')
+    .replaceAll(/-{2,}/g, '-');
 }
